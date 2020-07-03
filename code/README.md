@@ -1,3 +1,3 @@
-# 2020_jeju_credicard
+# 2020_jeju_creditcard
 
 ## Preprocessing & EDA
