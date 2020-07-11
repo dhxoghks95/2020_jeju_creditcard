@@ -3,3 +3,15 @@ http://kosis.kr/statHtml/statHtml.do?orgId=101&tblId=DT_1B040A3
 
 2. 행정구역_시_별_연령별_인구수_202004
 http://27.101.213.4/ageStatMonth.do
+
+3. 서울시_우리마을가게_상권분석서비스
+
+서울시_우리마을가게_상권분석서비스(상권영역)
+https://data.seoul.go.kr/dataList/OA-15560/S/1/datasetView.do
+
+서울시_우리마을가게_상권분석서비스(상권배후지_추정유동인구)
+https://data.seoul.go.kr/dataList/OA-15582/S/1/datasetView.do
+
+
+서울시_우리마을가게_상권분석서비스(자치구별_상권변화지표)
+https://data.seoul.go.kr/dataList/OA-15567/S/1/datasetView.do
