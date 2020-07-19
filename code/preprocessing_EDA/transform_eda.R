@@ -32,7 +32,7 @@ data = data %>% mutate(corona_increase = confirmed - released) %>% select(-c(con
 data = data %>% group_by(CARD_SIDO_NM, AGE) %>% mutate(age_population = sum(sex_age_population)) %>% select(-sex_age_population) %>% mutate(age_group = case_when(AGE == "10s" | AGE == '70s' ~ "10_70",
  AGE == "30s" | AGE == '40s' | AGE == '50s' ~ "30~50",AGE == '20s' | AGE == '60s' ~ '20_60')) %>% group_by(CARD_SIDO_NM, age_group) %>% mutate(age_population = sum(age_population))  %>% ungroup() %>% select(-age_group)
 
-
+write.csv(data, "transform_eda.csv")
 
 
 ## EDA
