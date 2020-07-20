@@ -20,9 +20,12 @@ data = oh %>% left_join(jo_1, by = c("CARD_SIDO_NM", "STD_CLSS_NM"))
 data = data %>% left_join(jo_2, by = c("CARD_SIDO_NM", "STD_CLSS_NM"))
 
 data = data %>% left_join(kim, by = c("total_tourist")) 
-data %>% glimpse()
+
+data = data %>% mutate(count = 1, same = case_when(
+  CARD_SIDO_NM == HOM_SIDO_NM ~ 1,
+  CARD_SIDO_NM != HOM_SIDO_NM ~ 0
+)) %>% group_by(CARD_SIDO_NM) %>% mutate(home_ratio = sum(same * CSTMR_CNT) / sum(count * CSTMR_CNT)) %>% select(-c(count, same))
 
 data = data %>% select(-c(CSTMR_CNT, CNT, YYMM, screen_num, total_tourist, total_sale_by_indst))
 
-write.csv(data, "modeling_data.csv")
-
+write.csv(data, "modeling_data.csv", row.names = F)
