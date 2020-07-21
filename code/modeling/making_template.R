@@ -31,8 +31,10 @@ temp = temp %>% left_join(home_ratio, by = c("CARD_SIDO_NM"))
 log_temp = log_temp %>% left_join(home_ratio, by = c("CARD_SIDO_NM"))
 log_temp = log_temp %>% select(-total_sale_by_indst_groupby)
 
+temp = temp %>% mutate(covid = TRUE, festival_count = 0)
+
+log_temp = log_temp %>% mutate(covid = TRUE, festival_count = 0)
+
 write.csv(temp, "template.csv", row.names = F)
 write.csv(log_temp, "log_template.csv", row.names = F)
 
-colnames(temp)
-colnames(log_temp)
