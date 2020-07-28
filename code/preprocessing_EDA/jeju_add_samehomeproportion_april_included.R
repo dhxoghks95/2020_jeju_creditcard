@@ -18,8 +18,8 @@ data['YYMM'] = paste(data$year, data$month, sep='-')
 
 data2 = data %>% group_by(YYMM, CARD_SIDO_NM) %>% summarise(total_home = sum(home_pp* CSTMR_CNT)/sum(x * CSTMR_CNT)) %>% ungroup() 
 
-data2['year'] = substr(data2$YYMM, 1,4)%>%as.numeric()
-data2['month'] = substr(data2$YYMM, 6,7)%>%as.numeric()
+data2['year'] = substr(data2$YYMM, 1,4)%>%as.integer()
+data2['month'] = substr(data2$YYMM, 6,7)%>%as.integer()
 
 head(data2)
 
@@ -33,9 +33,9 @@ data3 = sqldf("SELECT
        
        b.total_home
       
-       FROM data a LEFT OUTER JOIN data2 b on a.CARD_SIDO_NM = b.CARD_SIDO_NM AND a.year = b.year AND a.month = a.month")
+       FROM data a LEFT OUTER JOIN data2 b on a.CARD_SIDO_NM = b.CARD_SIDO_NM AND a.year = b.year AND a.month = b.month")
 
-head(data3)
+
 
 #to reduce the file size, represented 'total_home' column rounded into 2 digits!
 
@@ -48,3 +48,7 @@ colnames(data3)
 head(data3)
 
 write.csv(data3, 'C:/workspace/jeju/2020_jeju_creditcard/data/april_add_merge_with_homeproportion.csv')
+
+
+dataa = read.csv('C:/workspace/jeju/2020_jeju_creditcard/data/april_add_merge_with_homeproportion.csv')
+dim(dataa)
